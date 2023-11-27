@@ -116,7 +116,7 @@
                       <div class="container">
                       <div class="row justify-content-center">
                         <h3 class="mt-4 text-center">WANT AN OFFER?</h3>
-                        <form class="row g-3" onsubmit="bookService(event)">
+                        <form class="row g-3" id="formOfferta" onsubmit="mandaForm(event)">
                           <div class="col-md-6">
                             <label for="inputName4" class="form-label">First name</label>
                             <input type="text" class="form-control" id="inputName4" placeholder="Enter your first name...">
@@ -131,29 +131,40 @@
                           </div>
                           <div class="col-md-6">
                             <label for="inputName5" class="form-label">Hours requested</label>
-                            <input type="text" class="form-control" id="hours" placeholder="Hours requested...">
+                            <input type="text" class="form-control" id="hoursrequired" placeholder="Hours requested...">
                           </div>
                           <div class="col-md-6">
-                            <label for="inputWork" class="form-label">Type of work</label>
-                            <select id="inputWork" class="form-select">
-                              <option>Select the type of work</option>
-                              <option id="backEnd">Back-end Developer</option>
-                              <option id="frontEnd">Front-end Developer</option>
-                              <option id="">Poject Analyst</option>
+                            <label for="worktype" class="form-label">Type of work</label>
+                            <select name="worktype" id="worktype" class="form-select" required>
+                              <option value="" selected disabled>Select the type of work</option>
+                              <option value="backend" >Back-end Developer</option>
+                              <option value="frontend" >Front-end Developer</option>
+                              <option value="analysis" >Project Analyst</option>
                             </select>
                           </div>
                           <div class="col-md-6">
                             <label for="inputName6" class="form-label">Discount code</label>
-                            <input type="text" class="form-control" id="inputName6">
+                            <input type="text" class="form-control" id="discountcode">
+                            <div id="feedbackScontoInvalido" class="invalid-feedback">
+                              Il formato del codice non è corretto.
+                          </div>
+                          <div id="feedbackScontoValido" class="valid-feedback">
+                          </div>
                           </div>
                           <div class="col-mb-12">
                             <label for="FormControlTextarea1" class="form-label">Message</label>
                             <textarea class="form-control" id="FormControlTextarea1" rows="6" placeholder="Specify your work commission..."></textarea>
                           </div>
                           <div class="col d-md-flex justify-content-md-center mb-5 mt-4">
-                            <button type="submit" class="btn btn-warning">Send</button>
+                            <button type="submit" class="btn btn-warning" form="formOfferta">Send</button>
                           </div>
                         </form>
+                        <div class="row justify-content-center my-3 text-center">
+                          <div class="col-12 d-none">
+                              <span class="fs-4 m-0 bg-white p-2 rounded border border-light">Il prezzo finale
+                                  è di: <span id="spanPrezzo" class="text-success"></span></span>
+                          </div>
+                      </div>
                       </div>
                       </div>
                     </div>
